@@ -239,13 +239,14 @@ function InteractiveMap({ activities = [], tripId }) {
         scrollWheelZoom={true}
       >
 <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          // Force English language display
-          subdomains={['a', 'b', 'c']}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          // CartoDB Positron provides English-only labels globally
+          subdomains={['a', 'b', 'c', 'd']}
+          maxZoom={19}
           detectRetina={true}
-          // Ensure English labels globally
-          language="en"
+          // Ensure consistent English rendering
+          crossOrigin="anonymous"
         />
 
         {/* Activity markers */}
