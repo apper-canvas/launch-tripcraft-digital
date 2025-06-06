@@ -1,10 +1,10 @@
 import { useState, useEffect, useMemo } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Polyline, Tooltip } from 'react-leaflet'
 import { divIcon } from 'leaflet'
+import L from 'leaflet'
 import { motion } from 'framer-motion'
 import ApperIcon from './ApperIcon'
 import travelTimeService from '../services/api/travelTimeService'
-
 // Fix for default markers in react-leaflet
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -129,11 +129,12 @@ function InteractiveMap({ activities = [], tripId }) {
     }).filter(Boolean)
   }, [travelTimes])
 
-  // Format time for display
+// Format time for display
   const formatTime = (time24) => {
     const [hours, minutes] = time24.split(':')
-    const hour12 = hours % 12 || 12
-    const ampm = hours < 12 ? 'AM' : 'PM'
+    const numHours = parseInt(hours, 10)
+    const hour12 = numHours % 12 || 12
+    const ampm = numHours < 12 ? 'AM' : 'PM'
     return `${hour12}:${minutes} ${ampm}`
   }
 
@@ -237,9 +238,9 @@ function InteractiveMap({ activities = [], tripId }) {
         zoomControl={true}
         scrollWheelZoom={true}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+<TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         />
 
         {/* Activity markers */}
