@@ -7,6 +7,7 @@ import expenseService from '../services/api/expenseService'
 import checklistService from '../services/api/checklistService'
 import { format, parseISO, differenceInDays } from 'date-fns'
 import Chart from 'react-apexcharts'
+import ActivitySuggestions from './ActivitySuggestions'
 
 const InteractiveMap = lazy(() => import('./InteractiveMap'))
 
@@ -39,6 +40,7 @@ function MainFeature({
     item: '',
     category: 'Clothing'
   })
+  const [showSuggestions, setShowSuggestions] = useState(false)
 
   const tripActivities = activities.filter(a => a.tripId === selectedTrip?.id) || []
   const tripExpenses = expenses.filter(e => e.tripId === selectedTrip?.id) || []
@@ -72,7 +74,47 @@ function MainFeature({
     } catch (error) {
       toast.error("Failed to add activity")
     }
+}
+
+  // Handle adding activity from suggestions
+  const handleAddActivityFromSuggestion = async (activityData) => {
+    try {
+      const activity = await activityService.create(activityData)
+      setActivities(prev => [...prev, activity])
+      toast.success("Activity added to your itinerary!")
+    } catch (error) {
+      console.error('Error adding suggested activity:', error)
+      throw error // Re-throw to let ActivitySuggestions handle the error display
+    }
   }
+
+  // Get next available day and time for new activities
+  const getNextAvailableSlot = () => {
+    const sortedActivities = tripActivities.sort((a, b) => {
+      if (a.day !== b.day) return b.day - a.day
+      return b.startTime.localeCompare(a.startTime)
+    })
+    
+    if (sortedActivities.length === 0) {
+      return { day: 1, time: '09:00' }
+    }
+    
+    const lastActivity = sortedActivities[0]
+    const [hours, minutes] = lastActivity.endTime?.split(':') || lastActivity.startTime.split(':')
+    const endTime = new Date()
+    endTime.setHours(parseInt(hours), parseInt(minutes) + 30, 0, 0) // Add 30 min buffer
+    
+    let nextTime = `${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`
+    
+    // If too late in the day, move to next day
+    if (endTime.getHours() >= 20) {
+      return { day: Math.min(lastActivity.day + 1, tripDuration), time: '09:00' }
+    }
+    
+    return { day: lastActivity.day, time: nextTime }
+  }
+
+  const nextSlot = getNextAvailableSlot()
 
   const handleAddExpense = async () => {
     if (!newExpense.description.trim() || newExpense.amount <= 0) {
@@ -199,12 +241,42 @@ function MainFeature({
       </div>
     </div>
   )
-
-  const renderItinerary = () => (
+const renderItinerary = () => (
     <div className="space-y-6">
+      {/* Activity Suggestions */}
+      {!showSuggestions ? (
+        <div className="bg-white/80 dark:bg-surface-800/80 glass rounded-xl p-6 border border-surface-200 dark:border-surface-700">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="font-heading font-semibold text-surface-900 dark:text-white mb-1">
+                Discover Activities
+              </h3>
+              <p className="text-sm text-surface-600 dark:text-surface-400">
+                Find popular attractions and activities for {selectedTrip?.destination}
+              </p>
+            </div>
+            <button
+              onClick={() => setShowSuggestions(true)}
+              className="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors flex items-center space-x-2"
+            >
+              <ApperIcon name="Compass" className="w-4 h-4" />
+              <span>Explore Suggestions</span>
+            </button>
+          </div>
+        </div>
+      ) : (
+        <ActivitySuggestions
+          selectedTrip={selectedTrip}
+          onAddActivity={handleAddActivityFromSuggestion}
+          onClose={() => setShowSuggestions(false)}
+          nextAvailableDay={nextSlot.day}
+          nextAvailableTime={nextSlot.time}
+        />
+      )}
+
       {/* Add Activity Form */}
       <div className="bg-white/80 dark:bg-surface-800/80 glass rounded-xl p-6 border border-surface-200 dark:border-surface-700">
-        <h3 className="font-heading font-semibold text-surface-900 dark:text-white mb-4">Add New Activity</h3>
+        <h3 className="font-heading font-semibold text-surface-900 dark:text-white mb-4">Add Custom Activity</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <input
             type="text"
@@ -244,6 +316,7 @@ function MainFeature({
         </button>
       </div>
 
+      {/* Activities by Day */}
       {/* Activities by Day */}
       {Array.from({ length: tripDuration }, (_, dayIndex) => {
         const dayNumber = dayIndex + 1
