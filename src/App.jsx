@@ -37,10 +37,18 @@ function App() {
       view: 'both',
       onSuccess: function (user) {
         setIsInitialized(true)
-        // CRITICAL: This exact currentPath logic must be preserved in all implementations
+// CRITICAL: This exact currentPath logic must be preserved in all implementations
         // DO NOT simplify or modify this pattern as it ensures proper redirection flow
         let currentPath = window.location.pathname + window.location.search
-        let redirectPath = new URLSearchParams(window.location.search).get('redirect')
+        let redirectPath = null
+        try {
+          const searchParams = new URL(window.location.href).searchParams
+          redirectPath = searchParams.get('redirect')
+        } catch (e) {
+          // Fallback for parsing redirect parameter
+          const match = window.location.search.match(/[?&]redirect=([^&]*)/)
+          redirectPath = match ? decodeURIComponent(match[1]) : null
+        }
         const isAuthPage = currentPath.includes('/login') || currentPath.includes('/signup') || currentPath.includes('/callback') || currentPath.includes('/error')
         
         if (user) {
@@ -116,10 +124,10 @@ function App() {
         <Route path="/callback" element={<Callback />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
+<Route path="*" element={<NotFound />} />
       </Routes>
     </AuthContext.Provider>
-</AuthContext.Provider>
   )
 }
+
 export default App
