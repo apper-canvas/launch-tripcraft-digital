@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
 import { toast } from 'react-toastify'
 import ApperIcon from './ApperIcon'
@@ -7,6 +7,8 @@ import expenseService from '../services/api/expenseService'
 import checklistService from '../services/api/checklistService'
 import { format, parseISO, differenceInDays } from 'date-fns'
 import Chart from 'react-apexcharts'
+
+const InteractiveMap = lazy(() => import('./InteractiveMap'))
 
 function MainFeature({ 
   activeTab, 
@@ -510,6 +512,28 @@ function MainFeature({
     )
   }
 
+const renderMap = () => {
+    return (
+      <div className="bg-white/80 dark:bg-surface-800/80 glass rounded-xl border border-surface-200 dark:border-surface-700 overflow-hidden">
+        <div className="h-96 md:h-[500px] lg:h-[600px]">
+          <Suspense fallback={
+            <div className="flex items-center justify-center h-full">
+              <div className="text-center">
+                <ApperIcon name="MapPin" className="w-8 h-8 mx-auto mb-2 text-surface-400 animate-pulse" />
+                <p className="text-surface-600 dark:text-surface-400">Loading map...</p>
+              </div>
+            </div>
+          }>
+            <InteractiveMap 
+              activities={tripActivities}
+              tripId={selectedTrip?.id}
+            />
+          </Suspense>
+        </div>
+      </div>
+    )
+  }
+
   const renderContent = () => {
     switch (activeTab) {
       case 'overview':
@@ -520,6 +544,8 @@ function MainFeature({
         return renderBudget()
       case 'checklist':
         return renderChecklist()
+      case 'map':
+        return renderMap()
       default:
         return renderOverview()
     }

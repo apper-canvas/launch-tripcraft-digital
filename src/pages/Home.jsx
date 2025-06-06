@@ -80,11 +80,12 @@ function Home() {
 
   const stats = selectedTrip ? getTripStats(selectedTrip) : { daysLeft: 0, activitiesCount: 0, budgetSpent: 0, checklistProgress: 0 }
 
-  const tabs = [
+const tabs = [
     { id: 'overview', label: 'Overview', icon: 'Home' },
     { id: 'itinerary', label: 'Itinerary', icon: 'Calendar' },
     { id: 'budget', label: 'Budget', icon: 'DollarSign' },
-    { id: 'checklist', label: 'Checklist', icon: 'CheckSquare' }
+    { id: 'checklist', label: 'Checklist', icon: 'CheckSquare' },
+    { id: 'map', label: 'Map', icon: 'Map' }
   ]
 
   if (loading) {
