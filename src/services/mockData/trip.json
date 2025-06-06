@@ -1,102 +1,92 @@
 [
   {
     "id": "1",
-    "name": "Tokyo Adventure",
+    "Name": "Tokyo Adventure",
     "destination": "Tokyo, Japan",
-    "startDate": "2024-03-15",
-    "endDate": "2024-03-22",
+    "start_date": "2024-03-15",
+    "end_date": "2024-03-22",
     "budget": 3000,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&h=300&fit=crop"
   },
   {
     "id": "2",
-    "name": "European Getaway",
+    "Name": "European Getaway",
     "destination": "Paris, France",
-    "startDate": "2024-04-10",
-    "endDate": "2024-04-17",
+    "start_date": "2024-04-10",
+    "end_date": "2024-04-17",
     "budget": 2500,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=500&h=300&fit=crop"
   },
   {
     "id": "3",
-    "name": "Bali Retreat",
+    "Name": "Bali Retreat",
     "destination": "Bali, Indonesia",
-    "startDate": "2024-05-20",
-    "endDate": "2024-05-30",
+    "start_date": "2024-05-20",
+    "end_date": "2024-05-30",
     "budget": 2000,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=500&h=300&fit=crop"
   },
   {
     "id": "4",
-    "name": "New York City Break",
+    "Name": "New York City Break",
     "destination": "New York, USA",
-    "startDate": "2024-06-05",
-    "endDate": "2024-06-10",
+    "start_date": "2024-06-05",
+    "end_date": "2024-06-10",
     "budget": 1800,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=300&fit=crop"
   },
   {
     "id": "5",
-    "name": "Iceland Exploration",
+    "Name": "Iceland Exploration",
     "destination": "Reykjavik, Iceland",
-    "startDate": "2024-07-15",
-    "endDate": "2024-07-25",
+    "start_date": "2024-07-15",
+    "end_date": "2024-07-25",
     "budget": 3500,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
   },
   {
     "id": "6",
-    "name": "Thailand Beach Holiday",
+    "Name": "Thailand Beach Holiday",
     "destination": "Phuket, Thailand",
-    "startDate": "2024-08-12",
-    "endDate": "2024-08-20",
+    "start_date": "2024-08-12",
+    "end_date": "2024-08-20",
     "budget": 1500,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop"
   },
   {
     "id": "7",
-    "name": "Swiss Alpine Tour",
+    "Name": "Swiss Alpine Tour",
     "destination": "Zermatt, Switzerland",
-    "startDate": "2024-09-08",
-    "endDate": "2024-09-15",
+    "start_date": "2024-09-08",
+    "end_date": "2024-09-15",
     "budget": 4000,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=500&h=300&fit=crop"
   },
   {
     "id": "8",
-    "name": "Morocco Cultural Journey",
+    "Name": "Morocco Cultural Journey",
     "destination": "Marrakech, Morocco",
-    "startDate": "2024-10-03",
-    "endDate": "2024-10-12",
+    "start_date": "2024-10-03",
+    "end_date": "2024-10-12",
     "budget": 2200,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1489749798305-4fea3ae436d1?w=500&h=300&fit=crop"
   },
   {
     "id": "9",
-    "name": "Australian Outback",
+    "Name": "Australian Outback",
     "destination": "Sydney, Australia",
-    "startDate": "2024-11-18",
-    "endDate": "2024-11-28",
+    "start_date": "2024-11-18",
+    "end_date": "2024-11-28",
     "budget": 3800,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=500&h=300&fit=crop"
   },
   {
     "id": "10",
-    "name": "Costa Rica Adventure",
+    "Name": "Costa Rica Adventure",
     "destination": "San José, Costa Rica",
-    "startDate": "2024-12-14",
-    "endDate": "2024-12-22",
+    "start_date": "2024-12-14",
+    "end_date": "2024-12-22",
     "budget": 2800,
-    "currency": "USD",
-    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+    "cover_image": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&h=300&fit=crop"
   }
 ]

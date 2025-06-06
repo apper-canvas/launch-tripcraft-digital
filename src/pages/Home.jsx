@@ -20,10 +20,14 @@ function Home() {
   const [activeTab, setActiveTab] = useState('overview')
   const [darkMode, setDarkMode] = useState(false)
 
-  useEffect(() => {
+useEffect(() => {
     const loadData = async () => {
+      console.log('Home: Starting data load process')
       setLoading(true)
+      setError(null)
+      
       try {
+        console.log('Home: Fetching all data in parallel')
         const [tripsData, activitiesData, expensesData, checklistData] = await Promise.all([
           tripService.getAll(),
           activityService.getAll(),
@@ -31,19 +35,51 @@ function Home() {
           checklistService.getAll()
         ])
         
-        setTrips(tripsData || [])
+        console.log('Home: Data load results:', {
+          trips: tripsData?.length || 0,
+          activities: activitiesData?.length || 0,
+          expenses: expensesData?.length || 0,
+          checklist: checklistData?.length || 0
+        })
+        
+        // Validate and set trips data
+        const validTrips = Array.isArray(tripsData) ? tripsData.filter(trip => trip && trip.id) : []
+        setTrips(validTrips)
+        console.log('Home: Valid trips after filtering:', validTrips.length)
+        
         setActivities(activitiesData || [])
         setExpenses(expensesData || [])
         setChecklistItems(checklistData || [])
         
-        if (tripsData?.length > 0) {
-          setSelectedTrip(tripsData[0])
+        // Auto-select first trip if available
+        if (validTrips.length > 0) {
+          console.log('Home: Auto-selecting first trip:', validTrips[0])
+          setSelectedTrip(validTrips[0])
+        } else {
+          console.warn('Home: No valid trips found to auto-select')
+          setSelectedTrip(null)
         }
+        
+        console.log('Home: Data loading completed successfully')
       } catch (err) {
+        console.error('Home: Error during data loading:', err)
+        console.error('Home: Error details:', {
+          message: err.message,
+          stack: err.stack,
+          name: err.name
+        })
         setError(err.message)
         toast.error("Failed to load trip data")
+        
+        // Set empty arrays to prevent undefined errors
+        setTrips([])
+        setActivities([])
+        setExpenses([])
+        setChecklistItems([])
+        setSelectedTrip(null)
       } finally {
         setLoading(false)
+        console.log('Home: Data loading process finished')
       }
     }
     loadData()
@@ -57,24 +93,44 @@ function Home() {
     }
   }, [darkMode])
 
-  const getTripStats = (trip) => {
-    if (!trip) return { daysLeft: 0, activitiesCount: 0, budgetSpent: 0, checklistProgress: 0 }
+const getTripStats = (trip) => {
+    if (!trip) {
+      console.log('Home: getTripStats called with null/undefined trip')
+      return { daysLeft: 0, activitiesCount: 0, budgetSpent: 0, checklistProgress: 0 }
+    }
     
-    const daysLeft = differenceInDays(parseISO(trip.startDate), new Date())
-    const tripActivities = activities.filter(a => a.tripId === trip.id) || []
-    const tripExpenses = expenses.filter(e => e.tripId === trip.id) || []
-    const tripChecklist = checklistItems.filter(c => c.tripId === trip.id) || []
+    console.log('Home: Calculating stats for trip:', trip)
     
-    const budgetSpent = tripExpenses.reduce((sum, expense) => sum + (expense.amount || 0), 0)
-    const checklistProgress = tripChecklist.length > 0 
-      ? Math.round((tripChecklist.filter(item => item.checked).length / tripChecklist.length) * 100)
-      : 0
+    // Handle both field name formats for date
+    const startDate = trip.startDate || trip.start_date
+    if (!startDate) {
+      console.warn('Home: Trip missing start date:', trip)
+      return { daysLeft: 0, activitiesCount: 0, budgetSpent: 0, checklistProgress: 0 }
+    }
     
-    return {
-      daysLeft: Math.max(0, daysLeft),
-      activitiesCount: tripActivities.length,
-      budgetSpent,
-      checklistProgress
+    try {
+      const daysLeft = differenceInDays(parseISO(startDate), new Date())
+      const tripActivities = activities?.filter(a => a.tripId === trip.id || a.trip_id === trip.id) || []
+      const tripExpenses = expenses?.filter(e => e.tripId === trip.id || e.trip_id === trip.id) || []
+      const tripChecklist = checklistItems?.filter(c => c.tripId === trip.id || c.trip_id === trip.id) || []
+      
+      const budgetSpent = tripExpenses.reduce((sum, expense) => sum + (expense.amount || 0), 0)
+      const checklistProgress = tripChecklist.length > 0 
+        ? Math.round((tripChecklist.filter(item => item.checked).length / tripChecklist.length) * 100)
+        : 0
+      
+      const stats = {
+        daysLeft: Math.max(0, daysLeft),
+        activitiesCount: tripActivities.length,
+        budgetSpent,
+        checklistProgress
+      }
+      
+      console.log('Home: Calculated trip stats:', stats)
+      return stats
+    } catch (error) {
+      console.error('Home: Error calculating trip stats:', error)
+      return { daysLeft: 0, activitiesCount: 0, budgetSpent: 0, checklistProgress: 0 }
     }
   }
 
@@ -175,19 +231,29 @@ const tabs = [
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div 
-                      className="w-full h-24 rounded-lg bg-cover bg-center mb-3"
-                      style={{ backgroundImage: `url(${trip.coverImage})` }}
-                    >
-                      <div className="w-full h-full bg-gradient-to-t from-black/50 to-transparent rounded-lg flex items-end p-2">
-                        <span className="text-white text-sm font-medium">{trip.destination}</span>
-                      </div>
+<div 
+                    className="w-full h-24 rounded-lg bg-cover bg-center mb-3"
+                    style={{ backgroundImage: `url(${trip.coverImage || trip.cover_image || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop'})` }}
+                  >
+                    <div className="w-full h-full bg-gradient-to-t from-black/50 to-transparent rounded-lg flex items-end p-2">
+                      <span className="text-white text-sm font-medium">{trip.destination || 'Unknown Destination'}</span>
                     </div>
-                    <h3 className="font-medium text-surface-900 dark:text-white mb-1">{trip.name}</h3>
-                    <p className="text-sm text-surface-600 dark:text-surface-400">
-                      {format(parseISO(trip.startDate), 'MMM dd')} - {format(parseISO(trip.endDate), 'MMM dd, yyyy')}
-                    </p>
-                  </motion.div>
+                  </div>
+                  <h3 className="font-medium text-surface-900 dark:text-white mb-1">{trip.name || trip.Name || 'Untitled Trip'}</h3>
+                  <p className="text-sm text-surface-600 dark:text-surface-400">
+                    {(() => {
+                      try {
+                        const startDate = trip.startDate || trip.start_date
+                        const endDate = trip.endDate || trip.end_date
+                        if (!startDate || !endDate) return 'Dates not set'
+                        return `${format(parseISO(startDate), 'MMM dd')} - ${format(parseISO(endDate), 'MMM dd, yyyy')}`
+                      } catch (error) {
+                        console.error('Home: Error formatting trip dates:', error, trip)
+                        return 'Invalid date format'
+                      }
+                    })()}
+                  </p>
+                </motion.div>
                 ))}
               </div>
             </div>
@@ -201,13 +267,13 @@ const tabs = [
                 <div className="bg-white/80 dark:bg-surface-800/80 glass rounded-2xl p-6 border border-surface-200 dark:border-surface-700">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                     <div>
-                      <h1 className="text-3xl font-heading font-bold text-surface-900 dark:text-white mb-2">
-                        {selectedTrip.name}
-                      </h1>
-                      <p className="text-surface-600 dark:text-surface-400 flex items-center">
-                        <ApperIcon name="MapPin" className="w-4 h-4 mr-2" />
-                        {selectedTrip.destination}
-                      </p>
+<h1 className="text-3xl font-heading font-bold text-surface-900 dark:text-white mb-2">
+                      {selectedTrip?.name || selectedTrip?.Name || 'Untitled Trip'}
+                    </h1>
+                    <p className="text-surface-600 dark:text-surface-400 flex items-center">
+                      <ApperIcon name="MapPin" className="w-4 h-4 mr-2" />
+                      {selectedTrip?.destination || 'Unknown Destination'}
+                    </p>
                     </div>
                     <div className="mt-4 md:mt-0">
                       <div className="flex items-center space-x-4 text-sm">
