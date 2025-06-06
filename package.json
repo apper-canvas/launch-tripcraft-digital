@@ -22,10 +22,12 @@
     "apexcharts": "^4.7.0",
     "react-apexcharts": "^1.7.0",
     "date-fns": "^4.1.0",
-"leaflet": "^1.9.4",
+    "leaflet": "^1.9.4",
     "react-leaflet": "^4.2.1",
     "leaflet-routing-machine": "^3.2.12",
-    "mapbox-gl": "^2.15.0"
+    "mapbox-gl": "^2.15.0",
+    "@reduxjs/toolkit": "^2.0.1",
+    "react-redux": "^9.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
