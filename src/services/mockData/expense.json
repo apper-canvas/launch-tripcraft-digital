@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "tripId": "1",
+    "category": "Food",
+    "amount": 45.50,
+    "description": "Sushi dinner at Tsukiji",
+    "date": "2024-03-15"
+  },
+  {
+    "id": "2",
+    "tripId": "1",
+    "category": "Transportation",
+    "amount": 12.00,
+    "description": "Metro day pass",
+    "date": "2024-03-15"
+  },
+  {
+    "id": "3",
+    "tripId": "1",
+    "category": "Activities",
+    "amount": 35.00,
+    "description": "Tokyo Skytree admission",
+    "date": "2024-03-16"
+  },
+  {
+    "id": "4",
+    "tripId": "1",
+    "category": "Food",
+    "amount": 28.75,
+    "description": "Ramen lunch",
+    "date": "2024-03-16"
+  },
+  {
+    "id": "5",
+    "tripId": "2",
+    "category": "Food",
+    "amount": 65.00,
+    "description": "French bistro dinner",
+    "date": "2024-04-10"
+  },
+  {
+    "id": "6",
+    "tripId": "2",
+    "category": "Activities",
+    "amount": 40.00,
+    "description": "Seine River cruise",
+    "date": "2024-04-10"
+  },
+  {
+    "id": "7",
+    "tripId": "2",
+    "category": "Transportation",
+    "amount": 18.50,
+    "description": "Metro tickets",
+    "date": "2024-04-10"
+  },
+  {
+    "id": "8",
+    "tripId": "3",
+    "category": "Food",
+    "amount": 22.00,
+    "description": "Indonesian local cuisine",
+    "date": "2024-05-20"
+  },
+  {
+    "id": "9",
+    "tripId": "3",
+    "category": "Activities",
+    "amount": 60.00,
+    "description": "Traditional Balinese spa",
+    "date": "2024-05-21"
+  },
+  {
+    "id": "10",
+    "tripId": "3",
+    "category": "Transportation",
+    "amount": 15.00,
+    "description": "Scooter rental",
+    "date": "2024-05-20"
+  },
+  {
+    "id": "11",
+    "tripId": "4",
+    "category": "Food",
+    "amount": 38.00,
+    "description": "New York pizza and drinks",
+    "date": "2024-06-05"
+  },
+  {
+    "id": "12",
+    "tripId": "4",
+    "category": "Activities",
+    "amount": 45.00,
+    "description": "Statue of Liberty ferry",
+    "date": "2024-06-06"
+  },
+  {
+    "id": "13",
+    "tripId": "5",
+    "category": "Activities",
+    "amount": 85.00,
+    "description": "Blue Lagoon entrance",
+    "date": "2024-07-15"
+  },
+  {
+    "id": "14",
+    "tripId": "5",
+    "category": "Food",
+    "amount": 55.00,
+    "description": "Traditional Icelandic dinner",
+    "date": "2024-07-15"
+  },
+  {
+    "id": "15",
+    "tripId": "5",
+    "category": "Transportation",
+    "amount": 120.00,
+    "description": "Golden Circle tour bus",
+    "date": "2024-07-16"
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "1",
+    "tripId": "1",
+    "day": 1,
+    "title": "Arrival and Hotel Check-in",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "location": "Shibuya Hotel",
+    "notes": "Rest and settle in",
+    "cost": 0
+  },
+  {
+    "id": "2",
+    "tripId": "1",
+    "day": 1,
+    "title": "Shibuya Crossing Experience",
+    "startTime": "17:00",
+    "endTime": "19:00",
+    "location": "Shibuya Crossing",
+    "notes": "Experience the famous intersection",
+    "cost": 15
+  },
+  {
+    "id": "3",
+    "tripId": "1",
+    "day": 2,
+    "title": "Senso-ji Temple Visit",
+    "startTime": "09:00",
+    "endTime": "11:30",
+    "location": "Asakusa",
+    "notes": "Ancient Buddhist temple",
+    "cost": 10
+  },
+  {
+    "id": "4",
+    "tripId": "1",
+    "day": 2,
+    "title": "Tokyo Skytree",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "location": "Sumida",
+    "notes": "City views from observation deck",
+    "cost": 35
+  },
+  {
+    "id": "5",
+    "tripId": "2",
+    "day": 1,
+    "title": "Eiffel Tower Visit",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "location": "Champ de Mars",
+    "notes": "Iconic Paris landmark",
+    "cost": 25
+  },
+  {
+    "id": "6",
+    "tripId": "2",
+    "day": 1,
+    "title": "Seine River Cruise",
+    "startTime": "15:00",
+    "endTime": "16:30",
+    "location": "Seine River",
+    "notes": "Scenic boat tour",
+    "cost": 40
+  },
+  {
+    "id": "7",
+    "tripId": "2",
+    "day": 2,
+    "title": "Louvre Museum",
+    "startTime": "09:30",
+    "endTime": "13:00",
+    "location": "1st Arrondissement",
+    "notes": "World's largest art museum",
+    "cost": 20
+  },
+  {
+    "id": "8",
+    "tripId": "3",
+    "day": 1,
+    "title": "Ubud Monkey Forest",
+    "startTime": "09:00",
+    "endTime": "11:00",
+    "location": "Ubud",
+    "notes": "Sacred sanctuary and nature reserve",
+    "cost": 8
+  },
+  {
+    "id": "9",
+    "tripId": "3",
+    "day": 1,
+    "title": "Tegallalang Rice Terraces",
+    "startTime": "14:00",
+    "endTime": "16:30",
+    "location": "Tegallalang",
+    "notes": "Beautiful terraced landscapes",
+    "cost": 12
+  },
+  {
+    "id": "10",
+    "tripId": "3",
+    "day": 2,
+    "title": "Traditional Balinese Spa",
+    "startTime": "10:00",
+    "endTime": "12:30",
+    "location": "Seminyak",
+    "notes": "Relaxing traditional treatments",
+    "cost": 60
+  },
+  {
+    "id": "11",
+    "tripId": "4",
+    "day": 1,
+    "title": "Central Park Walk",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "location": "Central Park",
+    "notes": "Peaceful morning stroll",
+    "cost": 0
+  },
+  {
+    "id": "12",
+    "tripId": "4",
+    "day": 1,
+    "title": "Metropolitan Museum",
+    "startTime": "14:00",
+    "endTime": "17:00",
+    "location": "Upper East Side",
+    "notes": "World-class art collection",
+    "cost": 30
+  },
+  {
+    "id": "13",
+    "tripId": "4",
+    "day": 2,
+    "title": "Statue of Liberty",
+    "startTime": "09:00",
+    "endTime": "14:00",
+    "location": "Liberty Island",
+    "notes": "Ferry and island tour",
+    "cost": 45
+  },
+  {
+    "id": "14",
+    "tripId": "5",
+    "day": 1,
+    "title": "Blue Lagoon",
+    "startTime": "11:00",
+    "endTime": "15:00",
+    "location": "Grindavik",
+    "notes": "Geothermal spa experience",
+    "cost": 85
+  },
+  {
+    "id": "15",
+    "tripId": "5",
+    "day": 2,
+    "title": "Golden Circle Tour",
+    "startTime": "08:00",
+    "endTime": "18:00",
+    "location": "Various",
+    "notes": "Geysir, Gullfoss, Thingvellir",
+    "cost": 120
+  }
+]

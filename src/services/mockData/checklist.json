@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1",
+    "tripId": "1",
+    "item": "Passport",
+    "checked": true,
+    "category": "Documents"
+  },
+  {
+    "id": "2",
+    "tripId": "1",
+    "item": "Visa documents",
+    "checked": true,
+    "category": "Documents"
+  },
+  {
+    "id": "3",
+    "tripId": "1",
+    "item": "Travel insurance",
+    "checked": false,
+    "category": "Documents"
+  },
+  {
+    "id": "4",
+    "tripId": "1",
+    "item": "Comfortable walking shoes",
+    "checked": true,
+    "category": "Clothing"
+  },
+  {
+    "id": "5",
+    "tripId": "1",
+    "item": "Light jacket",
+    "checked": false,
+    "category": "Clothing"
+  },
+  {
+    "id": "6",
+    "tripId": "1",
+    "item": "Phone charger",
+    "checked": true,
+    "category": "Electronics"
+  },
+  {
+    "id": "7",
+    "tripId": "1",
+    "item": "Universal adapter",
+    "checked": false,
+    "category": "Electronics"
+  },
+  {
+    "id": "8",
+    "tripId": "2",
+    "item": "Passport",
+    "checked": true,
+    "category": "Documents"
+  },
+  {
+    "id": "9",
+    "tripId": "2",
+    "item": "European travel adapter",
+    "checked": false,
+    "category": "Electronics"
+  },
+  {
+    "id": "10",
+    "tripId": "2",
+    "item": "Formal dinner outfit",
+    "checked": true,
+    "category": "Clothing"
+  },
+  {
+    "id": "11",
+    "tripId": "2",
+    "item": "Comfortable walking shoes",
+    "checked": true,
+    "category": "Clothing"
+  },
+  {
+    "id": "12",
+    "tripId": "3",
+    "item": "Sunscreen SPF 50",
+    "checked": false,
+    "category": "Toiletries"
+  },
+  {
+    "id": "13",
+    "tripId": "3",
+    "item": "Swimwear",
+    "checked": true,
+    "category": "Clothing"
+  },
+  {
+    "id": "14",
+    "tripId": "3",
+    "item": "Insect repellent",
+    "checked": false,
+    "category": "Toiletries"
+  },
+  {
+    "id": "15",
+    "tripId": "3",
+    "item": "Waterproof camera",
+    "checked": false,
+    "category": "Electronics"
+  },
+  {
+    "id": "16",
+    "tripId": "4",
+    "item": "Winter coat",
+    "checked": true,
+    "category": "Clothing"
+  },
+  {
+    "id": "17",
+    "tripId": "4",
+    "item": "Broadway show tickets",
+    "checked": false,
+    "category": "Documents"
+  },
+  {
+    "id": "18",
+    "tripId": "5",
+    "item": "Warm thermal layers",
+    "checked": false,
+    "category": "Clothing"
+  },
+  {
+    "id": "19",
+    "tripId": "5",
+    "item": "Waterproof jacket",
+    "checked": false,
+    "category": "Clothing"
+  },
+  {
+    "id": "20",
+    "tripId": "5",
+    "item": "Hiking boots",
+    "checked": true,
+    "category": "Clothing"
+  }
+]

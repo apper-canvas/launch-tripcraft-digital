@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "name": "Tokyo Adventure",
+    "destination": "Tokyo, Japan",
+    "startDate": "2024-03-15",
+    "endDate": "2024-03-22",
+    "budget": 3000,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "2",
+    "name": "European Getaway",
+    "destination": "Paris, France",
+    "startDate": "2024-04-10",
+    "endDate": "2024-04-17",
+    "budget": 2500,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "3",
+    "name": "Bali Retreat",
+    "destination": "Bali, Indonesia",
+    "startDate": "2024-05-20",
+    "endDate": "2024-05-30",
+    "budget": 2000,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "4",
+    "name": "New York City Break",
+    "destination": "New York, USA",
+    "startDate": "2024-06-05",
+    "endDate": "2024-06-10",
+    "budget": 1800,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "5",
+    "name": "Iceland Exploration",
+    "destination": "Reykjavik, Iceland",
+    "startDate": "2024-07-15",
+    "endDate": "2024-07-25",
+    "budget": 3500,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "6",
+    "name": "Thailand Beach Holiday",
+    "destination": "Phuket, Thailand",
+    "startDate": "2024-08-12",
+    "endDate": "2024-08-20",
+    "budget": 1500,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "7",
+    "name": "Swiss Alpine Tour",
+    "destination": "Zermatt, Switzerland",
+    "startDate": "2024-09-08",
+    "endDate": "2024-09-15",
+    "budget": 4000,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "8",
+    "name": "Morocco Cultural Journey",
+    "destination": "Marrakech, Morocco",
+    "startDate": "2024-10-03",
+    "endDate": "2024-10-12",
+    "budget": 2200,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "9",
+    "name": "Australian Outback",
+    "destination": "Sydney, Australia",
+    "startDate": "2024-11-18",
+    "endDate": "2024-11-28",
+    "budget": 3800,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+  },
+  {
+    "id": "10",
+    "name": "Costa Rica Adventure",
+    "destination": "San José, Costa Rica",
+    "startDate": "2024-12-14",
+    "endDate": "2024-12-22",
+    "budget": 2800,
+    "currency": "USD",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+  }
+]
